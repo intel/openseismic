@@ -1,0 +1,21 @@
+{
+    "pre_model_optimizer_params": {
+        "script": "mnt/example3_optimization/pytorch2onnx.sh",
+        "path_to_state": "mnt/example3_optimization/salt.pt",
+        "model_output": "mnt/example3_optimization/salt.onnx"
+    },
+    "model_optimizer_params": {
+        "input_model": "mnt/example3_optimization/salt.onnx",
+        "input_shape": "[1,1,65,65,65]",
+        "data_type": "FP32",
+        "output_dir": "mnt/example3_scripts",
+        "model_name": "salt"
+    },
+    "inference_params": {
+        "data": "example3_data/",
+        "model": "mnt/example3_scripts/", 
+        "infer_type": "fine_cube_sync",
+        "return_to_fullsize": "True",
+        "output": "example3_output"
+    }
+}

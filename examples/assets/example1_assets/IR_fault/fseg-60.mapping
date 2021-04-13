@@ -1,0 +1,367 @@
+<?xml version="1.0" ?>
+<mapping>
+	<map>
+		<framework name="conv3d_9/convolution" out_port_id="0"/>
+		<IR id="76" name="conv3d_9/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_12/convolution" out_port_id="0"/>
+		<IR id="122" name="conv3d_12/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_15/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="167" name="conv3d_15/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_4/add" out_port_id="0"/>
+		<IR id="20" name="conv3d_4/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_3/Reshape_1" out_port_id="0"/>
+		<IR id="145" name="up_sampling3d_3/ExpandDims_1/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_3/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="12" name="conv3d_3/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_8/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="39" name="conv3d_8/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_5/Reshape" out_port_id="0"/>
+		<IR id="25" name="conv3d_5/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_7/convolution" out_port_id="0"/>
+		<IR id="35" name="conv3d_7/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_12/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="121" name="conv3d_12/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_11/Reshape" out_port_id="0"/>
+		<IR id="118" name="conv3d_11/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_7/add" out_port_id="0"/>
+		<IR id="37" name="conv3d_7/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_4/convolution" out_port_id="0"/>
+		<IR id="18" name="conv3d_4/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_15/Reshape" out_port_id="0"/>
+		<IR id="169" name="conv3d_15/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_2/Reshape_2" out_port_id="0"/>
+		<IR id="114" name="up_sampling3d_2/ExpandDims_2/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_2/add" out_port_id="0"/>
+		<IR id="9" name="conv3d_2/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_9/Reshape" out_port_id="0"/>
+		<IR id="77" name="conv3d_9/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_15/add" out_port_id="0"/>
+		<IR id="170" name="conv3d_15/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_14/add" out_port_id="0"/>
+		<IR id="165" name="conv3d_14/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_1/Reshape" out_port_id="0"/>
+		<IR id="53" name="up_sampling3d_1/ExpandDims/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_3/add" out_port_id="0"/>
+		<IR id="15" name="conv3d_3/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_7/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="34" name="conv3d_7/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_1/add" out_port_id="0"/>
+		<IR id="4" name="conv3d_1/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_13/add" out_port_id="0"/>
+		<IR id="160" name="conv3d_13/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_5/Relu" out_port_id="0"/>
+		<IR id="27" name="conv3d_5/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_8/Relu" out_port_id="0"/>
+		<IR id="43" name="conv3d_8/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_2/Reshape" out_port_id="0"/>
+		<IR id="8" name="conv3d_2/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_10/Reshape" out_port_id="0"/>
+		<IR id="82" name="conv3d_10/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_3/Reshape" out_port_id="0"/>
+		<IR id="14" name="conv3d_3/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_8/convolution" out_port_id="0"/>
+		<IR id="40" name="conv3d_8/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_2/Reshape" out_port_id="0"/>
+		<IR id="94" name="up_sampling3d_2/ExpandDims/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="max_pooling3d_1/MaxPool3D" out_port_id="0"/>
+		<IR id="11" name="max_pooling3d_1/MaxPool3D" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_8/Reshape" out_port_id="0"/>
+		<IR id="41" name="conv3d_8/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_11/convolution" out_port_id="0"/>
+		<IR id="117" name="conv3d_11/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_10/Relu" out_port_id="0"/>
+		<IR id="84" name="conv3d_10/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_2/Relu" out_port_id="0"/>
+		<IR id="10" name="conv3d_2/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_9/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="75" name="conv3d_9/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_12/Relu" out_port_id="0"/>
+		<IR id="125" name="conv3d_12/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_5/convolution" out_port_id="0"/>
+		<IR id="24" name="conv3d_5/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_10/convolution" out_port_id="0"/>
+		<IR id="81" name="conv3d_10/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_3/Reshape_2" out_port_id="0"/>
+		<IR id="155" name="up_sampling3d_3/ExpandDims_2/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_12/Reshape" out_port_id="0"/>
+		<IR id="123" name="conv3d_12/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_8/add" out_port_id="0"/>
+		<IR id="42" name="conv3d_8/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_9/Relu" out_port_id="0"/>
+		<IR id="79" name="conv3d_9/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_10/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="80" name="conv3d_10/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_9/add" out_port_id="0"/>
+		<IR id="78" name="conv3d_9/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_6/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="28" name="conv3d_6/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_13/Relu" out_port_id="0"/>
+		<IR id="161" name="conv3d_13/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_5/add" out_port_id="0"/>
+		<IR id="26" name="conv3d_5/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_4/Relu" out_port_id="0"/>
+		<IR id="21" name="conv3d_4/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_7/Reshape" out_port_id="0"/>
+		<IR id="36" name="conv3d_7/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="max_pooling3d_2/MaxPool3D" out_port_id="0"/>
+		<IR id="22" name="max_pooling3d_2/MaxPool3D" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_7/Relu" out_port_id="0"/>
+		<IR id="38" name="conv3d_7/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_1/Reshape_1" out_port_id="0"/>
+		<IR id="63" name="up_sampling3d_1/ExpandDims_1/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_14/Relu" out_port_id="0"/>
+		<IR id="166" name="conv3d_14/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_4/Reshape" out_port_id="0"/>
+		<IR id="19" name="conv3d_4/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_14/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="162" name="conv3d_14/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_15/Sigmoid" out_port_id="0"/>
+		<IR id="171" name="conv3d_15/Sigmoid" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_1/Relu" out_port_id="0"/>
+		<IR id="5" name="conv3d_1/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_12/add" out_port_id="0"/>
+		<IR id="124" name="conv3d_12/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_3/Reshape" out_port_id="0"/>
+		<IR id="135" name="up_sampling3d_3/ExpandDims/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_1/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="1" name="conv3d_1/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_1/convolution" out_port_id="0"/>
+		<IR id="2" name="conv3d_1/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_4/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="17" name="conv3d_4/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_13/Reshape" out_port_id="0"/>
+		<IR id="159" name="conv3d_13/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="input_1" out_port_id="0"/>
+		<IR id="0" name="input_1" out_port_id="0"/>
+	</map>
+	<map>
+		<framework name="conv3d_13/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="157" name="conv3d_13/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_14/Reshape" out_port_id="0"/>
+		<IR id="164" name="conv3d_14/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_13/convolution" out_port_id="0"/>
+		<IR id="158" name="conv3d_13/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_11/add" out_port_id="0"/>
+		<IR id="119" name="conv3d_11/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_14/convolution" out_port_id="0"/>
+		<IR id="163" name="conv3d_14/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_10/add" out_port_id="0"/>
+		<IR id="83" name="conv3d_10/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="concatenate_1/concat" out_port_id="0"/>
+		<IR id="74" name="concatenate_1/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_11/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="116" name="conv3d_11/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_1/Reshape" out_port_id="0"/>
+		<IR id="3" name="conv3d_1/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_5/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="23" name="conv3d_5/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_3/Relu" out_port_id="0"/>
+		<IR id="16" name="conv3d_3/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_3/convolution" out_port_id="0"/>
+		<IR id="13" name="conv3d_3/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_11/Relu" out_port_id="0"/>
+		<IR id="120" name="conv3d_11/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_1/Reshape_2" out_port_id="0"/>
+		<IR id="73" name="up_sampling3d_1/ExpandDims_2/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="max_pooling3d_3/MaxPool3D" out_port_id="0"/>
+		<IR id="33" name="max_pooling3d_3/MaxPool3D" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_6/Relu" out_port_id="0"/>
+		<IR id="32" name="conv3d_6/Relu" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="up_sampling3d_2/Reshape_1" out_port_id="0"/>
+		<IR id="104" name="up_sampling3d_2/ExpandDims_1/Interpolate_" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_6/convolution" out_port_id="0"/>
+		<IR id="29" name="conv3d_6/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_6/Reshape" out_port_id="0"/>
+		<IR id="30" name="conv3d_6/Reshape/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="concatenate_2/concat" out_port_id="0"/>
+		<IR id="115" name="concatenate_2/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="concatenate_3/concat" out_port_id="0"/>
+		<IR id="156" name="concatenate_3/concat" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_2/convolution" out_port_id="0"/>
+		<IR id="7" name="conv3d_2/convolution" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_6/add" out_port_id="0"/>
+		<IR id="31" name="conv3d_6/add" out_port_id="2"/>
+	</map>
+	<map>
+		<framework name="conv3d_2/convolution/ReadVariableOp" out_port_id="0"/>
+		<IR id="6" name="conv3d_2/convolution/ReadVariableOp/Output_0/Data__const" out_port_id="1"/>
+	</map>
+	<map>
+		<framework name="conv3d_15/convolution" out_port_id="0"/>
+		<IR id="168" name="conv3d_15/convolution" out_port_id="2"/>
+	</map>
+</mapping>

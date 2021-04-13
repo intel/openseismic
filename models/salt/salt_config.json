@@ -1,0 +1,16 @@
+{
+    "inference_params": {
+        "data": "data_mnt/Dutch_F3_data/",
+        "given_model": "salt",
+        "infer_type": "fine_cube_sync",
+        "return_to_fullsize": "True",
+        "output": "salt_demo_output",
+        "benchmarking": ""
+    },
+    "visualize_params": {
+        "input": "salt_demo_output",
+        "output": "visualization",
+        "model_type": "salt",
+        "slice_no": "42"
+    }
+}

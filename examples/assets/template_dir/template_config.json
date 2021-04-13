@@ -1,0 +1,32 @@
+{
+    "pre_model_optimizer_params": {
+        "script": "path/to/conversion/script.sh", 
+        "script_param_1": "...",
+        "script_param_2": "..."
+    },
+    "model_optimizer_params": {
+        "input_model": "path/to/model.ext",
+        "input_shape": "[...]",
+        "data_type": "FP32",
+        "output_dir": "output_dir/",
+        "model_name": "name-of-model"
+    },
+    "inference_params": {
+        "data": "path/to/data/",
+        "model": "path/to/model_files/and/model_scripts/", 
+        "infer_type": "<(a)sync, cube_(a)sync, section_(a)sync>",
+        "benchmarking": '',
+        "output": "path/to/output_dir/",
+        "streams": "num_streams",
+        "slice": "<full, inline, crossline, timeslice>",
+        "subsampl": "stride_of_cubed_inference",
+        "slice_no": "slice_number",
+        "im_size": "side_length_of_cube_for_cubed_inference",
+        "return_to_fullsize": "<True, False>"
+    },
+    "visualize_params": {
+        "input": "path/to/output_dir/",
+        "output": "vis_folder/",
+        "model_type": "<facies, salt, fault>"
+    }
+}

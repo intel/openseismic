@@ -1,0 +1,12 @@
+{
+    "inference_params": {
+        "data": "data_mnt/Dutch_F3_data/",
+        "model": "models/facies/only_processor_scripts/",
+        "given_model": "facies",
+        "infer_type": "section_sync",
+        "output": "facies_demo_output",
+        "slice": "timeslice",
+        "slice_no": "100",
+        "subsampl": "1"
+    }
+}

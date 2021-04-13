@@ -1,0 +1,9 @@
+{
+    "inference_params": {
+        "data": "data_mnt/Synthetic_fault_data/seis/", 
+        "model": "models/fault/only_processor_scripts/",
+        "given_model": "fseg",
+        "infer_type": "sync",
+        "output": "fault_proc_demo_output"
+    }
+}

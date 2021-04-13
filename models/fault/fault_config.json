@@ -1,0 +1,15 @@
+{
+    "inference_params": {
+        "data": "data_mnt/Dutch_F3_data/",
+        "given_model": "fseg",
+        "infer_type": "coarse_cube_sync",
+        "output": "fault_demo_output"
+    },
+    "visualize_params": {
+        "input": "fault_demo_output",
+        "output": "visualization",
+        "model_type": "fault",
+        "slice_no": "100"
+    }
+
+}

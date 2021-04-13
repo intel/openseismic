@@ -1,0 +1,9 @@
+{
+    "inference_params": {
+        "data": "data_mnt/Dutch_F3_data/",
+        "model": "mnt/only_processor_scripts/",
+        "given_model": "salt",
+        "infer_type": "fine_cube_sync",
+        "output": "salt_proc_demo_output"
+    }
+}
