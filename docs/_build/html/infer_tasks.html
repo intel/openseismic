@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Inference Tasks Documentation &mdash; Open Seismic beta0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model and Processors Documentation" href="models.html" />
+    <link rel="prev" title="Inference Handler Documentation" href="handlers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Open Seismic
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">Inference Handler Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inference Tasks Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#regular-inference">Regular Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coarse-cube-inference">Coarse Cube Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fine-cube-inference">Fine Cube Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-inference">Section Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Model and Processors Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Open Seismic</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Inference Tasks Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/infer_tasks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inference-tasks-documentation">
+<h1>Inference Tasks Documentation<a class="headerlink" href="#inference-tasks-documentation" title="Permalink to this headline">¶</a></h1>
+<p>OpenSeismic allows users to not only conduct regular inference on data,
+but it also helps users conduct critical inference tasks on seismic data.
+Below introduce the functions responsible for conducting inference. Read their
+descriptions in order to understand how to specify them in your configuration
+JSON file.</p>
+<div class="section" id="regular-inference">
+<h2>Regular Inference<a class="headerlink" href="#regular-inference" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.infer_regular.infer_sync">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_regular.</span></code><code class="sig-name descname"><span class="pre">infer_sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_regular.infer_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously infer as normal. In order to use this in your configuration,
+specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as <code class="docutils literal notranslate"><span class="pre">sync</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.python.infer_regular.infer_async">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_regular.</span></code><code class="sig-name descname"><span class="pre">infer_async</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_regular.infer_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronously infer as normal. In order to use this in your configuration,
+specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as <code class="docutils literal notranslate"><span class="pre">async</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="coarse-cube-inference">
+<h2>Coarse Cube Inference<a class="headerlink" href="#coarse-cube-inference" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.infer_coarse_cube.infer_coarse_cubed_sync">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_coarse_cube.</span></code><code class="sig-name descname"><span class="pre">infer_coarse_cubed_sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_coarse_cube.infer_coarse_cubed_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer on 3D seismic data synchronously with coarse cube output.
+In order to use this in your configuration, specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as
+<code class="docutils literal notranslate"><span class="pre">coarse_cube_sync</span></code>. Fine cubed inference requires that additional
+parameters such as <code class="docutils literal notranslate"><span class="pre">im_size</span></code> and <code class="docutils literal notranslate"><span class="pre">window</span></code> be specified in the JSON
+configuration file. This function’s specific arguments will be filled
+according to your configuration inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="fine-cube-inference">
+<h2>Fine Cube Inference<a class="headerlink" href="#fine-cube-inference" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.infer_fine_cube.infer_fine_cubed_sync">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_fine_cube.</span></code><code class="sig-name descname"><span class="pre">infer_fine_cubed_sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_fine_cube.infer_fine_cubed_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer on 3D seismic data synchronously with fine cube output.
+In order to use this in your configuration, specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as
+<code class="docutils literal notranslate"><span class="pre">fine_cube_sync</span></code>. Fine cubed inference requires that additional
+parameters such as <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">subsampl</span></code>, <code class="docutils literal notranslate"><span class="pre">im_size</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_no</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">return_to_fullsize</span></code> be specified in the JSON configuration file.
+This function’s specific arguments will be filled according to your
+configuration inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.python.infer_fine_cube.infer_fine_cubed_async">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_fine_cube.</span></code><code class="sig-name descname"><span class="pre">infer_fine_cubed_async</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_fine_cube.infer_fine_cubed_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer on 3D seismic data asynchronously with fine cube output.
+In order to use this in your configuration, specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as
+<code class="docutils literal notranslate"><span class="pre">fine_cube_async</span></code>. Fine cubed inference requires that additional
+parameters such as <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">subsampl</span></code>, <code class="docutils literal notranslate"><span class="pre">im_size</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_no</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">return_to_fullsize</span></code> be specified in the JSON configuration file.
+This function’s specific arguments will be filled according to your
+configuration inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="section-inference">
+<h2>Section Inference<a class="headerlink" href="#section-inference" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.infer_section.infer_section_sync">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_section.</span></code><code class="sig-name descname"><span class="pre">infer_section_sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_section.infer_section_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer on section data synchronously. In order to use this in your
+configuration, specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as <code class="docutils literal notranslate"><span class="pre">section_sync</span></code>. Section inference
+requires that additional parameters such as <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">subsampl</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">slice_no</span></code> be specified in the JSON configuration file. This function’s
+specific arguments will be filled according to your configuration inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.python.infer_section.infer_section_async">
+<code class="sig-prename descclassname"><span class="pre">core.python.infer_section.</span></code><code class="sig-name descname"><span class="pre">infer_section_async</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_functions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.infer_section.infer_section_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Infer on section data asynchronously. In order to use this in your
+configuration, specify <code class="docutils literal notranslate"><span class="pre">infer_type</span></code> as <code class="docutils literal notranslate"><span class="pre">section_async</span></code>. Section inference
+requires that additional parameters such as <code class="docutils literal notranslate"><span class="pre">slice</span></code>, <code class="docutils literal notranslate"><span class="pre">subsampl</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">slice_no</span></code> be specified in the JSON configuration file. This function’s
+specific arguments will be filled according to your configuration inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg_obj</strong> – Arguments object that holds parameters needed for inference.</p></li>
+<li><p><strong>logger</strong> – Common logger object for logging coherence.</p></li>
+<li><p><strong>get_functions</strong> – Functions associated with parameters given.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="models.html" class="btn btn-neutral float-right" title="Model and Processors Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="handlers.html" class="btn btn-neutral float-left" title="Inference Handler Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Intel Corporation.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

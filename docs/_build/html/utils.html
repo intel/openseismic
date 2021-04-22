@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Utilities Documentation &mdash; Open Seismic beta0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Model and Processors Documentation" href="models.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Open Seismic
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">Inference Handler Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infer_tasks.html">Inference Tasks Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Model and Processors Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-core.python.utils.argparse_util">Inference Argument Parsing and Copying Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-core.python.utils.infer_util">Inference Utility Functions and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-core.python.utils.jsonparse_util">JSON to Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-paths-dictionary">Model Paths Dictionary</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Open Seismic</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Utilities Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utilities-documentation">
+<h1>Utilities Documentation<a class="headerlink" href="#utilities-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Open Seismic uses some utilities functions in order to conduct proper inference.
+The documentation below goes in-depth as to the purpose and usage of the major
+utility functions.</p>
+<div class="section" id="module-core.python.utils.argparse_util">
+<span id="inference-argument-parsing-and-copying-files"></span><h2>Inference Argument Parsing and Copying Files<a class="headerlink" href="#module-core.python.utils.argparse_util" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.utils.argparse_util.args">
+<code class="sig-prename descclassname"><span class="pre">core.python.utils.argparse_util.</span></code><code class="sig-name descname"><span class="pre">args</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.argparse_util.args" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function helps parse command line arguments. The configuration JSON
+file arguments will be passed to their respective submodules (conversion,
+OpenVINO optimization, and inference). However, this function is purely
+concerned with inference arguments. The other arguments are used for the
+user’s own conversion script or the model optimizer script that comes with
+OpenVINO.</p>
+<dl class="simple">
+<dt>The main arguments are as follows:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">model</span></code>: OpenVINO model folder path for swappable components</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">given_model_name</span></code>: Open Seismic model name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Data folder path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">benchmarking</span></code>: Flag to enable/disable model benchmarking</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: Prediction output path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">infer_type</span></code>: (<code class="docutils literal notranslate"><span class="pre">sync</span></code> / <code class="docutils literal notranslate"><span class="pre">async</span></code> / <code class="docutils literal notranslate"><span class="pre">fine_cube_sync</span></code> / <code class="docutils literal notranslate"><span class="pre">fine_cube_async</span></code> / <code class="docutils literal notranslate"><span class="pre">coarse_cube_sync</span></code> / <code class="docutils literal notranslate"><span class="pre">section_sync</span></code> / <code class="docutils literal notranslate"><span class="pre">section_async</span></code>) Type of inference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">streams</span></code>: Number of streams for inference</p></li>
+</ul>
+</dd>
+</dl>
+<p>The optional arguments are as follows. Note that although they are optional,
+certain inference tasks need these arguments in order to run:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slice</span></code>: (<code class="docutils literal notranslate"><span class="pre">full</span></code> / <code class="docutils literal notranslate"><span class="pre">inline</span></code> / <code class="docutils literal notranslate"><span class="pre">crossline</span></code> / <code class="docutils literal notranslate"><span class="pre">timeslice</span></code>) ONLY FOR FINE CUBE/SECTION INFER. Slice type for cutting into data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">window</span></code>: (<code class="docutils literal notranslate"><span class="pre">...;l1i:l2i,w1i:w2i,h1i:h2i;...</span></code>) ONLY FOR COARSE CUBE INFER. Infer on <code class="docutils literal notranslate"><span class="pre">cube_i[l1i:l2i,w1i:w2i,h1i:h2i]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsampl</span></code>: ONLY FOR FINE CUBE/SECTION INFER. Look at every n-th point</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_no</span></code>: ONLY FOR FINE CUBE/SECTION INFER. Slice number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">im_size</span></code>: ONLY FOR FINE CUBE/COARSE CUBE/SECTION INFER. Side length of cube/section to window in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return_to_fullsize</span></code>: ONLY FOR FINE CUBE INFER. Output will be the full size of the input (done through interpolation)</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Argument Namespace Object mapping arguments to their respective values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-0"></span><dl class="py function">
+<dt id="core.python.utils.argparse_util.copyfile">
+<code class="sig-prename descclassname"><span class="pre">core.python.utils.argparse_util.</span></code><code class="sig-name descname"><span class="pre">copyfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.argparse_util.copyfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This simple function copies a file named <code class="docutils literal notranslate"><span class="pre">file</span></code> from the <code class="docutils literal notranslate"><span class="pre">src</span></code> path to the <code class="docutils literal notranslate"><span class="pre">dst</span></code> path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – Path of the source file.</p></li>
+<li><p><strong>dst</strong> – Path of the destination file.</p></li>
+<li><p><strong>file</strong> – Name of the file to be copied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.python.utils.infer_util">
+<span id="inference-utility-functions-and-classes"></span><h2>Inference Utility Functions and Classes<a class="headerlink" href="#module-core.python.utils.infer_util" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="core.python.utils.infer_util.OV_simulator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.python.utils.infer_util.</span></code><code class="sig-name descname"><span class="pre">OV_simulator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CPU_THROUGHPUT_AUTO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">OV_simulator</span></code> class is a bare-bones wrapper for doing inference in Open Seismic.</p>
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">streams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CPU_THROUGHPUT_AUTO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_to_xml</strong> – Path to xml file of model’s OpenVINO IR.</p></li>
+<li><p><strong>path_to_bin</strong> – Path to bin file of model’s OpenVINO IR.</p></li>
+<li><p><strong>requests</strong> – Number of requests to use during inference.</p></li>
+<li><p><strong>streams</strong> – Number of streams or a specification of stream usage.</p></li>
+<li><p><strong>n1n2n3</strong> – Tuple representing size reference for input layer. Shape will be <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">n1,</span> <span class="pre">n2,</span> <span class="pre">n3)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_idle_request_id">
+<code class="sig-name descname"><span class="pre">get_idle_request_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_idle_request_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an idle request id. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Idle request id (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_input_shape">
+<code class="sig-name descname"><span class="pre">get_input_shape</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_input_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get shape of each input layer. If there is only one layer, then a tuple will be returned. If there are
+multiple layers, then a list of tuples will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple representing input layer shape or a dictionary mapping layer to shape if multiple layers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_input_shape_dict">
+<code class="sig-name descname"><span class="pre">get_input_shape_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_input_shape_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input shape dictionary where the return value is <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_i:layer_i_shape,</span> <span class="pre">...}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Layer-to-shape dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_inputs">
+<code class="sig-name descname"><span class="pre">get_inputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input layer name(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the input layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_outputs">
+<code class="sig-name descname"><span class="pre">get_outputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get output layer name(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the output layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.get_requests">
+<code class="sig-name descname"><span class="pre">get_requests</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.get_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get requests object of model. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Requests object of model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.infer">
+<code class="sig-name descname"><span class="pre">infer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conduct simple inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_dict</strong> – Input dictionary containing <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_name:input_val,</span> <span class="pre">...}</span></code>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Tuple containing (1) an output dictionary mapping output layer to output value and (2) latency in milliseconds.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.OV_simulator.reshape_input">
+<code class="sig-name descname"><span class="pre">reshape_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.OV_simulator.reshape_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the shape of the input layers. Shape may be a tuple/list or it may be a dictionary mapping
+layers to their new shapes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> – Tuple/list representing the new desired input shape.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-1"></span><dl class="py class">
+<dt id="core.python.utils.infer_util.InferReqWrap">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.python.utils.infer_util.</span></code><code class="sig-name descname"><span class="pre">InferReqWrap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">InferReqWrap</span></code> class offers additional logic on top of the OpenVINO requests API in order to conduct
+and store inference per request.</p>
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferReqWrap.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">req_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the <code class="docutils literal notranslate"><span class="pre">InferReqWrap</span></code> class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – Request from model paired with <code class="docutils literal notranslate"><span class="pre">req_id</span></code>.</p></li>
+<li><p><strong>req_id</strong> – The request id associated with <code class="docutils literal notranslate"><span class="pre">request</span></code>.</p></li>
+<li><p><strong>custom_callback</strong> – A custom callback function to execute after inference is completed.</p></li>
+<li><p><strong>callback_args</strong> – Arguments to be passed into the custom_callback function.</p></li>
+<li><p><strong>callback_queue</strong> – A callback function from an <code class="docutils literal notranslate"><span class="pre">InferRequestsQueue</span></code> object.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferReqWrap.callback">
+<code class="sig-name descname"><span class="pre">callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap.callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>This callback function will be executed once an inference request is complete. First, the
+custom callback is called with its appropriate arguments. Then, the <code class="docutils literal notranslate"><span class="pre">InferRequestQueue</span></code> callback
+will be called to clean up the inference request and set the request associated with this object as
+idle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status_code</strong> – The status code of the inference request.</p></li>
+<li><p><strong>user_data</strong> – Arguments and other data used for the custom callback function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferReqWrap.get_preds">
+<code class="sig-name descname"><span class="pre">get_preds</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap.get_preds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the predictions that were computed by <code class="docutils literal notranslate"><span class="pre">self.request</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of dictionaries that map output layers to their output values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferReqWrap.infer">
+<code class="sig-name descname"><span class="pre">infer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap.infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts synchronous inference request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_data</strong> – A dictionary mapping layers to their input data.</p></li>
+<li><p><strong>ground_truth</strong> – Label for the associated input data</p></li>
+<li><p><strong>extra_params</strong> – Params that might need to be used in the callback.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferReqWrap.start_async">
+<code class="sig-name descname"><span class="pre">start_async</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferReqWrap.start_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts asynchronous inference request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_data</strong> – A dictionary mapping layers to their input data.</p></li>
+<li><p><strong>file_name</strong> – Name of the file associated with the input data.</p></li>
+<li><p><strong>extra_params</strong> – Params that might need to be used in the callback.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-2"></span><dl class="py class">
+<dt id="core.python.utils.infer_util.InferRequestsQueue">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.python.utils.infer_util.</span></code><code class="sig-name descname"><span class="pre">InferRequestsQueue</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocess</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">InferRequestQueue</span></code> manages the execution of requests that are wrapped in <code class="docutils literal notranslate"><span class="pre">InferReqWrap</span></code> objects.</p>
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocess</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of the <code class="docutils literal notranslate"><span class="pre">InferRequestsQueue</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>requests</strong> – A requests object from the execution network from <code class="docutils literal notranslate"><span class="pre">IECore</span></code>.</p></li>
+<li><p><strong>callback</strong> – A custom callback that will be executed when an inference request is finished.</p></li>
+<li><p><strong>postprocess</strong> – A postprocess function that may or may not be in the custom callback function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.get_duration_in_seconds">
+<code class="sig-name descname"><span class="pre">get_duration_in_seconds</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.get_duration_in_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total duration of inference in terms of seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>total duration in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.get_idle_request">
+<code class="sig-name descname"><span class="pre">get_idle_request</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.get_idle_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an idle request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A request object that is idle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.put_idle_request">
+<code class="sig-name descname"><span class="pre">put_idle_request</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.put_idle_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the request associated with <code class="docutils literal notranslate"><span class="pre">req_id</span></code> to idle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>req_id</strong> – A request id associated with a request.</p></li>
+<li><p><strong>latency</strong> – The latency of the inference request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.reset_times">
+<code class="sig-name descname"><span class="pre">reset_times</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.reset_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the inference times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="core.python.utils.infer_util.InferRequestsQueue.wait_all">
+<code class="sig-name descname"><span class="pre">wait_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.InferRequestsQueue.wait_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits for all inference requests to finish. This is particularly useful when all inputs
+have been put on the queue for execution. If called, this function will block the main thread until
+the requests have finished.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-3"></span><dl class="py function">
+<dt id="core.python.utils.infer_util.loader">
+<code class="sig-prename descclassname"><span class="pre">core.python.utils.infer_util.</span></code><code class="sig-name descname"><span class="pre">loader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.loader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a path <code class="docutils literal notranslate"><span class="pre">file</span></code>, this function converts this file type to a file
+type known by Open Seismic. The currently supported file types are
+<code class="docutils literal notranslate"><span class="pre">.segy</span></code>, <code class="docutils literal notranslate"><span class="pre">.npy</span></code>, and <code class="docutils literal notranslate"><span class="pre">.dat</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> – Path to the file to be converted.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The converted file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-4"></span><dl class="py function">
+<dt id="core.python.utils.infer_util.segy_to_np">
+<code class="sig-prename descclassname"><span class="pre">core.python.utils.infer_util.</span></code><code class="sig-name descname"><span class="pre">segy_to_np</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.infer_util.segy_to_np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a <code class="docutils literal notranslate"><span class="pre">file_path</span></code> of a segy file, this function converts the segy
+trace data to a numpy data representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – Path to the segy data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tuple containing (1) NumPy data and (2) a dictionary with information from segy file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.python.utils.jsonparse_util">
+<span id="json-to-command-line-arguments"></span><h2>JSON to Command Line Arguments<a class="headerlink" href="#module-core.python.utils.jsonparse_util" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.python.utils.jsonparse_util.get_params_string">
+<code class="sig-prename descclassname"><span class="pre">core.python.utils.jsonparse_util.</span></code><code class="sig-name descname"><span class="pre">get_params_string</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.python.utils.jsonparse_util.get_params_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple function that takes in a configuration file path <code class="docutils literal notranslate"><span class="pre">file_path</span></code>
+and parses it to convert the keys to command line tags and the values to
+their respective command line tag values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – Path to JSON file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>String representing arguments in a command line.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="model-paths-dictionary">
+<h2>Model Paths Dictionary<a class="headerlink" href="#model-paths-dictionary" title="Permalink to this headline">¶</a></h2>
+<p>This <code class="docutils literal notranslate"><span class="pre">model_paths.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">core/python/utils</span></code> folder maps Open Seismic model names
+to a tuple containing (1) the xml path and (2) the bin path. The dictionary is structured
+as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fseg_bin</span> <span class="o">=</span> <span class="n">models_path</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;fault&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;model&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span>  <span class="s1">&#39;shp-fseg-60.bin&#39;</span>
+
+<span class="n">salt_xml</span> <span class="o">=</span> <span class="n">models_path</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;salt&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;model&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span>  <span class="s1">&#39;saved_model.xml&#39;</span>
+<span class="n">salt_bin</span> <span class="o">=</span> <span class="n">models_path</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;salt&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;model&#39;</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span>  <span class="s1">&#39;saved_model.bin&#39;</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="models.html" class="btn btn-neutral float-left" title="Model and Processors Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Intel Corporation.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

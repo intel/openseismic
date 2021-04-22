@@ -1,0 +1,708 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Model and Processors Documentation &mdash; Open Seismic beta0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Utilities Documentation" href="utils.html" />
+    <link rel="prev" title="Inference Tasks Documentation" href="infer_tasks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Open Seismic
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handlers.html">Inference Handler Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infer_tasks.html">Inference Tasks Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model and Processors Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#faultseg">FaultSeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#salt">Salt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facies">Facies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Open Seismic</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Model and Processors Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model-and-processors-documentation">
+<h1>Model and Processors Documentation<a class="headerlink" href="#model-and-processors-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Open Seismic offers public state-of-the-art models for users to try.
+Below introduces the classes and their associated processor scripts that
+are used to conduct inference on seismic data. Read their
+descriptions in order to understand how to specify them in your configuration
+JSON file.</p>
+<div class="section" id="faultseg">
+<h2>FaultSeg<a class="headerlink" href="#faultseg" title="Permalink to this headline">¶</a></h2>
+<p>The FaultSeg repository can be found here: <a class="reference external" href="https://github.com/xinwucwp/faultSeg">FaultSeg repository</a>.
+The OpenVINO IR xml and bin files can be found in <code class="docutils literal notranslate"><span class="pre">models/fault/model/</span></code>.
+In order to specify FaultSeg in your configuration file, set <code class="docutils literal notranslate"><span class="pre">given_model_name</span></code> to
+<code class="docutils literal notranslate"><span class="pre">fseg</span></code> under <code class="docutils literal notranslate"><span class="pre">inference_params</span></code>.</p>
+<span class="target" id="module-models.fault.model.model"></span><dl class="py class">
+<dt id="models.fault.model.model.Model">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">models.fault.model.model.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The FaultSeg model class contains methods important to regular inference and
+coarse cube inference. If you would like to make classes that utilize these
+inference tasks, treat the FaultSeg model class as the interface to implement.</p>
+<dl class="py method">
+<dt id="models.fault.model.model.Model.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of FaultSeg model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_to_xml</strong> – Path to xml file of model’s OpenVINO IR.</p></li>
+<li><p><strong>path_to_bin</strong> – Path to bin file of model’s OpenVINO IR.</p></li>
+<li><p><strong>requests</strong> – Number of requests to use during inference.</p></li>
+<li><p><strong>n1n2n3</strong> – Tuple representing size reference for input layer. Shape will be <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">n1,</span> <span class="pre">n2,</span> <span class="pre">n3)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_idle_request_id">
+<code class="sig-name descname"><span class="pre">get_idle_request_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_idle_request_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an idle request id. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Idle request id (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_input_shape">
+<code class="sig-name descname"><span class="pre">get_input_shape</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_input_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get shape of each input layer. There is only one input layer for the FaultSeg model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple representing input layer shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_input_shape_dict">
+<code class="sig-name descname"><span class="pre">get_input_shape_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_input_shape_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input shape dictionary where the return value is <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_i:layer_i_shape,</span> <span class="pre">...}</span></code>.
+Since the FaultSeg model only has one layer, the dictionary returned is just
+<code class="docutils literal notranslate"><span class="pre">{first_layer_name:first_layer_shape}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Layer-to-shape dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_inputs">
+<code class="sig-name descname"><span class="pre">get_inputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input layer name(s). Only one layer name will be returned for the FaultSeg model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the input layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_outputs">
+<code class="sig-name descname"><span class="pre">get_outputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get output layer name(s). Only one layer name will be returned for the FaultSeg model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the output layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.get_requests">
+<code class="sig-name descname"><span class="pre">get_requests</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.get_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get requests object of model. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Requests object of model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.infer">
+<code class="sig-name descname"><span class="pre">infer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flexible_infer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conduct simple inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dict</strong> – Input dictionary containing <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_name:input_val,</span> <span class="pre">...}</span></code>.</p></li>
+<li><p><strong>flexible_infer</strong> – Boolean for specifying shape change mid-inference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output_dict, latency (ms)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.fault.model.model.Model.reshape_input">
+<code class="sig-name descname"><span class="pre">reshape_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.model.Model.reshape_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the shape of the input layer to <code class="docutils literal notranslate"><span class="pre">shape</span></code>. In the case of FaultSeg, the first
+and only layer will change shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> – Tuple/list representing the new desired input shape.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-models.fault.model.preprocessor"></span><dl class="py function">
+<dt id="models.fault.model.preprocessor.preprocess">
+<code class="sig-prename descclassname"><span class="pre">models.fault.model.preprocessor.</span></code><code class="sig-name descname"><span class="pre">preprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n1n2n3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(128,</span> <span class="pre">128,</span> <span class="pre">128)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.preprocessor.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>The preprocessing scripts follows a usual centering and normalizing of the input,
+followed by a transpose and addition of superfluous axes for inference purposes.
+If the input values are not the same shape as the FaultSeg input layer, then they
+will be inserted into a zero-tensor that is the same shape as the input layer.
+Therefore, we must guarantee that the input values are smaller than or equal to
+the input layer shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The original data input.</p></li>
+<li><p><strong>input_layers</strong> – A list of input layers. The FaultSeg model will only contain one layer.</p></li>
+<li><p><strong>n1n2n3</strong> – (Optional) The expected shape to mold flat input values.</p></li>
+<li><p><strong>model</strong> – (Optional) The model used for inference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An input dictionary structured as <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">input_layer_name_i:input_val_i,</span> <span class="pre">...}</span></code>. In this case, the returned value will be <code class="docutils literal notranslate"><span class="pre">{first_input_layer_name:input_val}</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-models.fault.model.postprocessor"></span><dl class="py function">
+<dt id="models.fault.model.postprocessor.postprocess">
+<code class="sig-prename descclassname"><span class="pre">models.fault.model.postprocessor.</span></code><code class="sig-name descname"><span class="pre">postprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.fault.model.postprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>The postprocess script for the FaultSeg model squeezes the output to get rid of extraneous
+axes. Then, if the model’s output shape is different than the original output shape specified
+in <code class="docutils literal notranslate"><span class="pre">output_shape</span></code> (if given), then the model output is cropped to match <code class="docutils literal notranslate"><span class="pre">output_shape</span></code>.
+Therefore, we must guarantee that the model output will be greater than or equal to the
+original shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_val</strong> – An output dictionary structured as <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">output_layer_i:output_val,</span> <span class="pre">...}</span></code>.</p></li>
+<li><p><strong>output_shape</strong> – (Optional) Tuple/list representing the original output shape.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An output dictionary structured the same as <code class="docutils literal notranslate"><span class="pre">output_val</span></code> except contained cropped output values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="salt">
+<h2>Salt<a class="headerlink" href="#salt" title="Permalink to this headline">¶</a></h2>
+<p>Literature pertaining to the Salt model be found here: <a class="reference external" href="https://library.seg.org/doi/abs/10.1190/tle37070529.1">Salt literature link</a>.
+The OpenVINO IR xml and bin files can be found in <code class="docutils literal notranslate"><span class="pre">models/salt/model/</span></code>.
+In order to specify FaultSeg in your configuration file, set <code class="docutils literal notranslate"><span class="pre">given_model_name</span></code> to
+<code class="docutils literal notranslate"><span class="pre">salt</span></code> under <code class="docutils literal notranslate"><span class="pre">inference_params</span></code>.</p>
+<span class="target" id="module-models.salt.model.model"></span><dl class="py class">
+<dt id="models.salt.model.model.Model">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">models.salt.model.model.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Salt model class contains methods important to fine cube inference.
+If you would like to make classes that utilize these
+inference tasks, treat the Salt model class as the interface to implement.</p>
+<dl class="py method">
+<dt id="models.salt.model.model.Model.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of Salt model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_to_xml</strong> – Path to xml file of model’s OpenVINO IR.</p></li>
+<li><p><strong>path_to_bin</strong> – Path to bin file of model’s OpenVINO IR.</p></li>
+<li><p><strong>requests</strong> – Number of requests to use during inference.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.get_idle_request_id">
+<code class="sig-name descname"><span class="pre">get_idle_request_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.get_idle_request_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an idle request id. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Idle request id (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.get_inputs">
+<code class="sig-name descname"><span class="pre">get_inputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.get_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input layer name(s). Only one layer name will be returned for the Salt model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the input layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.get_outputs">
+<code class="sig-name descname"><span class="pre">get_outputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.get_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get output layer name(s). Only one layer name will be returned for the Salt
+model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the output layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.get_requests">
+<code class="sig-name descname"><span class="pre">get_requests</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.get_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get requests object of model. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Requests object of model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.infer">
+<code class="sig-name descname"><span class="pre">infer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flexible_infer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conduct simple inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dict</strong> – Input dictionary containing <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_name:input_val,</span> <span class="pre">...}</span></code>.</p></li>
+<li><p><strong>flexible_infer</strong> – Boolean for specifying shape change mid-inference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output_dict, latency (ms)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.salt.model.model.Model.reshape_input">
+<code class="sig-name descname"><span class="pre">reshape_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.model.Model.reshape_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the shape of the input layer to <code class="docutils literal notranslate"><span class="pre">shape</span></code>. In the case of Salt model, the first
+and only layer will change shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> – Tuple/list representing the new desired input shape.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-models.salt.model.preprocessor"></span><dl class="py function">
+<dt id="models.salt.model.preprocessor.preprocess">
+<code class="sig-prename descclassname"><span class="pre">models.salt.model.preprocessor.</span></code><code class="sig-name descname"><span class="pre">preprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.preprocessor.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the cube input and stores it in a dictionary where each key represents a layer name.
+For clarity, the structure will be <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">input_layer_name_i:cube,</span> <span class="pre">...}</span></code>. For the Salt
+model, there is only one layer, so the output will be <code class="docutils literal notranslate"><span class="pre">{first_input_layer_name:cube}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cube</strong> – The original data input.</p></li>
+<li><p><strong>input_layers</strong> – A list of input layers. The Salt model will only contain one layer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>n input dictionary structured as <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">input_layer_name_i:cube,</span> <span class="pre">...}</span></code>. In this case, the returned value will be <code class="docutils literal notranslate"><span class="pre">{first_input_layer_name:cube}</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-models.salt.model.postprocessor"></span><dl class="py function">
+<dt id="models.salt.model.postprocessor.postprocess">
+<code class="sig-prename descclassname"><span class="pre">models.salt.model.postprocessor.</span></code><code class="sig-name descname"><span class="pre">postprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.salt.model.postprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>This postprocess simply returns the input <code class="docutils literal notranslate"><span class="pre">output_val</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output_val</strong> – dictionary mapping output_data to output_layers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">output_val</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="facies">
+<h2>Facies<a class="headerlink" href="#facies" title="Permalink to this headline">¶</a></h2>
+<p>The Facies repository can be found here: <a class="reference external" href="https://github.com/yalaudah/facies_classification_benchmark">Facies repository</a>.
+The OpenVINO IR xml and bin files can be found in <code class="docutils literal notranslate"><span class="pre">models/facies/model/</span></code>.
+In order to specify FaultSeg in your configuration file, set <code class="docutils literal notranslate"><span class="pre">given_model_name</span></code> to
+<code class="docutils literal notranslate"><span class="pre">facies</span></code> under <code class="docutils literal notranslate"><span class="pre">inference_params</span></code>.</p>
+<span class="target" id="module-models.facies.model.model"></span><dl class="py class">
+<dt id="models.facies.model.model.Model">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">models.facies.model.model.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Facies model class contains methods important to section inference.
+If you would like to make classes that utilize these
+inference tasks, treat the Facies model class as the interface to implement.</p>
+<dl class="py method">
+<dt id="models.facies.model.model.Model.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_bin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization of Facies model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_to_xml</strong> – Path to xml file of model’s OpenVINO IR.</p></li>
+<li><p><strong>path_to_bin</strong> – Path to bin file of model’s OpenVINO IR.</p></li>
+<li><p><strong>requests</strong> – Number of requests to use during inference.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.get_idle_request_id">
+<code class="sig-name descname"><span class="pre">get_idle_request_id</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.get_idle_request_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an idle request id. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Idle request id (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.get_input_shape">
+<code class="sig-name descname"><span class="pre">get_input_shape</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.get_input_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get shape of each input layer. There is only one input layer for the Facies model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple representing input layer shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.get_inputs">
+<code class="sig-name descname"><span class="pre">get_inputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.get_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get input layer name(s). Only one layer name will be returned for the Facies
+model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the input layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.get_outputs">
+<code class="sig-name descname"><span class="pre">get_outputs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.get_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get output layer name(s). Only one layer name will be returned for the
+Facies model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of strings representing the names of the output layers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.get_requests">
+<code class="sig-name descname"><span class="pre">get_requests</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.get_requests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get requests object of model. The <code class="docutils literal notranslate"><span class="pre">get_requests</span></code> and <code class="docutils literal notranslate"><span class="pre">get_idle_request_id</span></code> methods
+are used for asynchronous inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Requests object of model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.infer">
+<code class="sig-name descname"><span class="pre">infer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flexible_infer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conduct simple inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dict</strong> – Input dictionary containing <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">layer_name:input_val,</span> <span class="pre">...}</span></code>.</p></li>
+<li><p><strong>flexible_infer</strong> – Boolean for specifying shape change mid-inference.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output_dict, latency (ms)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="models.facies.model.model.Model.reshape_input">
+<code class="sig-name descname"><span class="pre">reshape_input</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.model.Model.reshape_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the shape of the input layer to <code class="docutils literal notranslate"><span class="pre">shape</span></code>. In the case of Faices model,
+the first and only layer will change shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> – Tuple/list representing the new desired input shape.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-models.facies.model.preprocessor"></span><dl class="py function">
+<dt id="models.facies.model.preprocessor.preprocess">
+<code class="sig-prename descclassname"><span class="pre">models.facies.model.preprocessor.</span></code><code class="sig-name descname"><span class="pre">preprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.preprocessor.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>This preprocessing function takes the section input <code class="docutils literal notranslate"><span class="pre">sheet</span></code> and crops it
+to match the Facies input layer shape, if they are different. Then, an
+input dictionary is returned where each input layer is mapped to the sheet
+data. For the Facies model, there is only one input layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sheet</strong> – Section input data.</p></li>
+<li><p><strong>input_layers</strong> – A list of input layer names.</p></li>
+<li><p><strong>model</strong> – The model object that is using this preprocessing function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An input dictionary structured as <code class="docutils literal notranslate"><span class="pre">{...,</span> <span class="pre">input_layer_i:input,</span> <span class="pre">...}</span></code>. Since there is only one layer in the Facies model, the returned dictionary will be structured as <code class="docutils literal notranslate"><span class="pre">{input_layer:input}</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-models.facies.model.postprocessor"></span><dl class="py function">
+<dt id="models.facies.model.postprocessor.postprocess">
+<code class="sig-prename descclassname"><span class="pre">models.facies.model.postprocessor.</span></code><code class="sig-name descname"><span class="pre">postprocess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orig_shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#models.facies.model.postprocessor.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>This postprocess function first checks if the output contained within the
+<code class="docutils literal notranslate"><span class="pre">output_val</span></code> dictionary matches the specified <code class="docutils literal notranslate"><span class="pre">orig_shape</span></code> (a 4
+element list/tuple, but the last two elements are the ones that are
+checked). If the shapes are different, then the output is cropped to
+match the <code class="docutils literal notranslate"><span class="pre">orig_shape</span></code>. Then, the output is ran through a softmax layer.
+The maximum probabilistic class is assigned to each pixel in the section,
+and this output is returned in the form <code class="docutils literal notranslate"><span class="pre">{output_layer:prediction}</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_val</strong> – The output value dictionary, structured as <code class="docutils literal notranslate"><span class="pre">{output_layer:output}</span></code>.</p></li>
+<li><p><strong>orig_shape</strong> – The original shape of the input data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary mapping output layer to maximum class prediction per pixel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utilities Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="infer_tasks.html" class="btn btn-neutral float-left" title="Inference Tasks Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Intel Corporation.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
