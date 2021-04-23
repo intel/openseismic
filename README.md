@@ -1,7 +1,7 @@
 # Open Seismic
 
 ## About Open Seismic
- Open Seismic is an open source toolbox for conducting inference on seismic data. We use [OpenVINO](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) while inference.
+Open Seismic is an open source sandbox environment for developers in oil & gas to perform deep learning inference on 3D/2D seismic seismic data. Open Seismic performs deep learning inference for seismic data with optimizations by [OpenVINO™ Toolkit](https://docs.openvinotoolkit.org/latest/index.html). Open Seismic is containerized to run anywhere and includes publicly available reference models for common tasks: [Fault Detection](https://github.com/xinwucwp/faultSeg) , [Salt Identification](https://github.com/waldeland/CNN-for-ASI) , [Facies Classification](https://github.com/yalaudah/facies_classification_benchmark).
  
 <div align="center">
   <img src="resources/Architecture.PNG" width="500"/>
@@ -24,7 +24,7 @@ To download the required data the the proper path, simply run `setup_dependencie
 ```
 
 ### Docker
-The following command builds the docker image. This is the recommended way of installing Open Seismic and will be the default way that this README interacts with Open Seismic.
+The following command builds the docker image. This is the **recommended** way of installing Open Seismic and will be the default way that this README interacts with Open Seismic.
 ```
 $ docker build . -t open_seismic
 ```
@@ -66,7 +66,7 @@ $ cd core && ./run.sh -c models/facies/facies_config.json
 
 ### Next Steps
 
-If you would like to learn more about Open Seismic, please go to our documentation website. If you would like a more interactive learning experience, please go to the `examples/` directory and follow the instructions in the notebooks. If you would like to learn more about models that exist within Open Seismic, please go to `demos/` and look in each folder dedicated to demo-ing a model.
+If you would like to learn more about Open Seismic, please go to our documentation website. If you would like a more interactive learning experience, please go to the `examples/` directory and follow the instructions in the notebooks. If you would like to learn more about models that exist within Open Seismic, please go to `models/demos/` and look in each folder dedicated to demo-ing a model.
 
 In the `examples/` directory, you will find four notebooks:
 1. `Example1.ipynb`: This notebook will teach you about converting models to OpenVINO IR.
@@ -74,7 +74,7 @@ In the `examples/` directory, you will find four notebooks:
 3. `Example3.ipynb`: This notebook will walkthrough how to use Open Seismic by using an example JSON config file.
 4. `Example4.ipynb`: This notebook allows users to rapidly get started with using Open Seismic by editing a couple of variables in the notebook.
 
-In the `demos/` directory, you will find three demo notebooks. Each notebook goes over how to utilize the given models in Open Seismic.
+In the `models/demos/` directory, you will find three demo notebooks. Each notebook goes over how to utilize the given models in Open Seismic.
 
 ## Details for Usage
 Needed files:
@@ -272,3 +272,10 @@ If you use this toolbox or benchmark in your research, please cite the following
     primaryClass={eess.IV}
 }
 ```
+
+## Open Seismic Contributors:
+- [Christian Reyes](https://github.com/fcr3)
+- [Alexey Khorkin](https://github.com/alexeyhorkin)
+- [Ravi Panchumarthy](https://github.com/ravi9)
+- [Alexey Gruzdev](https://github.com/grib0ed0v)
+- [Manas Pathak](https://github.com/manaspathak89)

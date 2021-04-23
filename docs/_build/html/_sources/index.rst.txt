@@ -5,7 +5,7 @@
 
 Welcome to Open Seismic!
 =======================================
-Open Seismic is an open source toolbox for conducting inference on seismic data using OpenVINO.
+Open Seismic is an open source sandbox environment for developers in oil & gas to perform deep learning inference on 3D/2D seismic seismic data. Open Seismic performs deep learning inference for seismic data with optimizations by `OpenVINO™ Toolkit <https://docs.openvinotoolkit.org/latest/index.html>`_ . Open Seismic is containerized to run anywhere and includes publicly available reference models for common tasks: `Fault Detection <https://github.com/xinwucwp/faultSeg>`_ , `Salt Identification <https://github.com/waldeland/CNN-for-ASI>`_ , `Facies Classification <https://github.com/yalaudah/facies_classification_benchmark>`_.
 
 .. image:: ../resources/Architecture.PNG
    :width: 400
@@ -69,7 +69,7 @@ You can find the ``<container_name>`` using the command:
 
 Next Steps
 ^^^^^^^^^^^
-If you would like to learn more about Open Seismic, please go to our documentation website. If you would like a more interactive learning experience, please go to the ``examples/`` directory and follow the instructions in the notebooks. If you would like to learn more about models that exist within Open Seismic, please go to ``demos/`` and look in each folder dedicated to demo'ing a model.
+If you would like to learn more about Open Seismic, please go to our documentation website. If you would like a more interactive learning experience, please go to the ``examples/`` directory and follow the instructions in the notebooks. If you would like to learn more about models that exist within Open Seismic, please go to ``models/demos/`` and look in each folder dedicated to demo'ing a model.
 
 In the ``examples/`` directory, you will find four notebooks:
 
@@ -78,13 +78,13 @@ In the ``examples/`` directory, you will find four notebooks:
 #. ``Example3.ipynb``: This notebook will walkthrough how to use Open Seismic by using an example JSON config file.
 #. ``Example4.ipynb``: This notebook allows users to rapidly get started with using Open Seismic by editing a couple of variables in the notebook.
 
-In the ``demos/`` directory, you will find three demo notebooks. Each notebook goes over how to utilize the given models in Open Seismic.
+In the ``models/demos/`` directory, you will find three demo notebooks. Each notebook goes over how to utilize the given models in Open Seismic.
 
 Local
 ^^^^^
 Users can also choose to locally install Open Seismic outside of a Docker container. This option is **not recommended**.
 
-#. Install Intel's Distribution of OpenVINO. The required version of OpenVINO is **2020.4.287**. Documentation for installation can be found `here <https://docs.openvinotoolkit.org/latest/index.html>`_.
+#. Install Intel's Distribution of OpenVINO. The required version of OpenVINO is **2021.2** or greater. Documentation for installation can be found `here <https://docs.openvinotoolkit.org/latest/index.html>`_.
 #. Execute the following commands in a terminal window:
    .. code-block::
 
@@ -103,7 +103,7 @@ General Purpose Example (Handling model conversion, optimization, and inference)
 
 Note above that the file paths in the script options must be from root of the docker container: "/". Recommended file structure is introduced in the documentation.
 
-For more information, please reference the details sections below. For a more hands-on approach, use our example notebooks located at ``examples/`` to get familiar with Intel Infer Seismic. If you would like a more hands-on experience with using Open Seismic's models, go to ``app/`` and navigate to the directory associated with your model of choice.
+For more information, please reference the details sections below. For a more hands-on approach, use our example notebooks located at ``examples/`` to get familiar with Intel Infer Seismic. If you would like a more hands-on experience with using Open Seismic's models, go to ``models/`` and navigate to the directory associated with your model of choice.
 
 Visualization
 --------------
