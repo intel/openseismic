@@ -5,7 +5,7 @@
 
 Welcome to Open Seismic!
 =======================================
-Open Seismic is an open source sandbox environment for developers in oil & gas to perform deep learning inference on 3D/2D seismic seismic data. Open Seismic performs deep learning inference for seismic data with optimizations by `OpenVINO™ Toolkit <https://docs.openvinotoolkit.org/latest/index.html>`_ . Open Seismic is containerized to run anywhere and includes publicly available reference models for common tasks: `Fault Detection <https://github.com/xinwucwp/faultSeg>`_ , `Salt Identification <https://github.com/waldeland/CNN-for-ASI>`_ , `Facies Classification <https://github.com/yalaudah/facies_classification_benchmark>`_.
+Open Seismic is an open source sandbox environment for developers in oil & gas to perform deep learning inference on 3D/2D seismic data. Open Seismic performs deep learning inference for seismic data with optimizations by `OpenVINO™ Toolkit <https://docs.openvinotoolkit.org/latest/index.html>`_ . Open Seismic is containerized to run anywhere and includes publicly available reference models for common tasks: `Fault Detection <https://github.com/xinwucwp/faultSeg>`_ , `Salt Identification <https://github.com/waldeland/CNN-for-ASI>`_ , `Facies Classification <https://github.com/yalaudah/facies_classification_benchmark>`_.
 
 .. image:: ../resources/Architecture.PNG
    :width: 400
