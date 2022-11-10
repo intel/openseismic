@@ -1,9 +1,9 @@
-torch==1.5.0
-tensorflow==1.15.5
-keras==2.3.1
-torchvision==0.6.0
-test-generator==0.1.1
-h5py==2.10.0
+torch
+tensorflow
+keras
+torchvision>=0.6.0
+test-generator
+h5py>=2.10.0
 networkx>=1.11
 jupyterlab
 notebook>=6.2.0
@@ -13,7 +13,7 @@ progress
 scipy
 tqdm
 segyio
-numpy<1.19.0,>=1.16.0
+numpy
 scikit-image
 pillow>=8.1.1
 pyyaml>=5.4
